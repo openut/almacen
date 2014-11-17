@@ -1,0 +1,5 @@
+minsal_penut:
+    resource: "@MinsalPenutBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

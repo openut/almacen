@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Consulta</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Nombre departamento</th>
+                <th>Director</th>
+                <th>Nombre empleado</th>
+                <th>Cateoria</th>
+                <th>Dedicacion</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.nombreDepartamento }}</td>
+                <td>{{ entity.director }}</td>
+                <td>{{ entity.nombreEmpleado }}</td>
+                <td>{{ entity.categoria }}</td>
+                <td>{{ entity.dedicacion }}</td>                
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>        
+    {% endblock %}

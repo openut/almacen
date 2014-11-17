@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Empleado" table="empleado">
+    <indexes>
+      <index name="IDX_D9D9BF526325E299" columns="id_departamento"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="idx_empleado_id" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombreEmpleado" type="string" column="nombre_empleado" length="30" nullable="false"/>
+    <field name="categoria" type="integer" column="categoria" nullable="true"/>
+    <field name="dedicacion" type="string" column="dedicacion" length="30" nullable="true"/>
+    <many-to-one field="idDepartamento" target-entity="Departamento">
+      <join-columns>
+        <join-column name="id_departamento" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
